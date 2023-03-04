@@ -1,4 +1,5 @@
 # A python3 program to calculate sum of the even-valued fibonacci terms not exceeding four million
+import sys;
 
 def sumOfEvenValuedFibonacciTerms(list):
     sum = 0;
@@ -11,8 +12,7 @@ def sumOfEvenValuedFibonacciTerms(list):
 class Solver:
     def fibonacciSeries(self, n):
         if(n > 4000000):
-            print('Cancelling the calculation as the number exceeds four million')
-        return;
+            sys.exit("Cancelling the calculation as the number exceeds four million");
         list = [];
         for i in range(0,n):
             if (i <= 1):
@@ -25,5 +25,6 @@ class Solver:
 
 
 if __name__ == '__main__':
+    number = int(input("enter number\n"))
     solver = Solver();
-    solver.fibonacciSeries(4000000);
+    solver.fibonacciSeries(number);
