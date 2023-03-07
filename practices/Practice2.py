@@ -4,12 +4,10 @@ import sys;
 sys.set_int_max_str_digits(0)
 
 
-def sumOfEvenValuedFibonacciTerms(list):
-    sum = 0;
-    for i in list:
-        if (i % 2 == 0):
-            sum = sum + i;
-    print(sum);
+def sumOfEvenValuedFibonacciTerms(list_of_fibonacci_numbers):
+    sum_of_even_numbers = sum(list(filter(lambda x: x % 2 == 0, list_of_fibonacci_numbers)))
+    print(sum_of_even_numbers)
+
 
 
 class Solver:
@@ -17,11 +15,11 @@ class Solver:
 
         if (n > 4000000):
             sys.exit("Cancelling the calculation as the number exceeds four million")
-        listOfFibonacciNumbers: list[int] = [i for i in range(0, n) if i <= 1]
+        list_of_fibonacci_numbers: list[int] = [i for i in range(0, n) if i <= 1]
         for i in range(2, n):
-            listOfFibonacciNumbers.append(listOfFibonacciNumbers[i - 1] + listOfFibonacciNumbers[i - 2])
+            list_of_fibonacci_numbers.append(list_of_fibonacci_numbers[i - 1] + list_of_fibonacci_numbers[i - 2])
             i = i + 1
-        sumOfEvenValuedFibonacciTerms(listOfFibonacciNumbers);
+        sumOfEvenValuedFibonacciTerms(list_of_fibonacci_numbers);
 
 
 if __name__ == '__main__':
