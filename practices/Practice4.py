@@ -1,17 +1,17 @@
 import math
 
-def gcd(a, b):
+def greatest_common_divisor(a, b):
     while b != 0:
         a, b = b, a % b
     return a
 
-def lcm(a, b):
-    return (a * b) // gcd(a, b)
+def least_common_multiple(a, b):
+    return (a * b) // greatest_common_divisor(a, b)
 
 def smallest_divisible_number(lower, upper):
     lcm_final = lower
     for i in range(lower, upper + 1):
-        lcm_final = lcm(lcm_final, i)
+        lcm_final = least_common_multiple(lcm_final, i)
     return lcm_final
 
 result = smallest_divisible_number(1, 20)
